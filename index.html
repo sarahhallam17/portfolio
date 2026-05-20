@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarah Hallam — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --cream: #F8F5EE;
+      --charcoal: #2C2C2C;
+      --sage: #6A8C6E;
+      --sage-light: #EBF0EB;
+      --sage-mid: #C3D4C4;
+      --muted: #8A8574;
+      --border: #E5E0D5;
+      --text-body: #4A4840;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248, 245, 238, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--charcoal); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.03em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+
+    /* HERO */
+    .hero {
+      max-width: 1120px; margin: 0 auto;
+      padding: 5.5rem 2.5rem 4.5rem;
+      display: grid; grid-template-columns: 1fr 300px;
+      gap: 5rem; align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+      font-weight: 700; line-height: 1.12;
+      color: var(--charcoal); margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); }
+    .hero-bio {
+      font-size: 1.025rem; color: var(--muted);
+      line-height: 1.8; max-width: 500px; margin-bottom: 2.25rem;
+    }
+    .hero-bio strong { color: var(--charcoal); font-weight: 500; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; padding: 0.65rem 1.375rem;
+      border-radius: 5px; font-size: 0.875rem; font-weight: 500;
+      text-decoration: none; transition: all 0.2s; letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--sage); color: white; }
+    .btn-primary:hover { background: #577259; }
+    .btn-outline { border: 1.5px solid var(--border); color: var(--charcoal); }
+    .btn-outline:hover { border-color: var(--sage); color: var(--sage); }
+
+    .hero-photo img {
+      width: 100%; border-radius: 10px;
+      object-fit: cover; object-position: top center;
+      aspect-ratio: 4/5; display: block;
+      box-shadow: 0 24px 64px rgba(44, 44, 44, 0.13);
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--sage-light);
+      border-top: 1px solid var(--sage-mid);
+      border-bottom: 1px solid var(--sage-mid);
+      padding: 2.25rem 2.5rem;
+    }
+    .stats-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; font-weight: 700;
+      color: var(--sage); display: block;
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.775rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.09em;
+    }
+
+    /* SECTION WRAP */
+    .section-wrap { max-width: 1120px; margin: 0 auto; padding: 5.5rem 2.5rem; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 2.8vw, 2.3rem);
+      font-weight: 700; color: var(--charcoal);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 1rem; color: var(--muted);
+      max-width: 580px; margin-bottom: 3.5rem; line-height: 1.75;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 360px;
+      gap: 4.5rem; align-items: start;
+    }
+    .about-text p {
+      font-size: 1rem; line-height: 1.85;
+      color: var(--text-body); margin-bottom: 1.25rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--charcoal); font-weight: 600; }
+    .sidebar-card {
+      background: white; border-radius: 10px;
+      border: 1px solid var(--border); padding: 2rem;
+    }
+    .sidebar-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; margin-bottom: 1.25rem; color: var(--charcoal);
+    }
+    .career-item { padding: 0.875rem 0; border-bottom: 1px solid var(--border); }
+    .career-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .career-co { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+    .career-role { font-size: 0.825rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.4; }
+
+    /* NEWSLETTER SPOTLIGHT — First Principles brand */
+    .newsletter-spotlight {
+      background: #0D000F url('fp-bg.jpg') center/cover no-repeat;
+      padding: 4.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-spotlight::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(10, 0, 14, 0.55);
+      pointer-events: none;
+    }
+    .newsletter-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4.5rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .newsletter-spotlight .section-label {
+      color: #C9A8D4;
+      letter-spacing: 0.18em;
+    }
+    .newsletter-spotlight h2 { color: white; }
+    .newsletter-spotlight p {
+      color: #B8A8C8; font-size: 1rem;
+      line-height: 1.8; margin-top: 1rem;
+    }
+    /* FP wordmark — real PNG */
+    .fp-wordmark {
+      display: block;
+      width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    .fp-wordmark img { width: 100%; display: block; }
+
+    /* Mermaid callout */
+    .mermaid-callout {
+      background: var(--sage-light);
+      border: 1px solid var(--sage-mid);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .mermaid-callout img {
+      width: 100%; display: block;
+      border-bottom: 1px solid var(--sage-mid);
+    }
+    .mermaid-note {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.75rem; color: var(--sage);
+      font-weight: 500; line-height: 1.4;
+    }
+    .mermaid-note strong { color: #4a6b4e; }
+
+    /* Case study image grid */
+    .cs-image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .cs-image-grid img {
+      width: 100%; border-radius: 6px;
+      display: block; object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .cs-image-grid img.span-full {
+      grid-column: 1 / -1;
+    }
+    .cs-image-single {
+      margin-top: 1.5rem;
+    }
+    .cs-image-single img {
+      width: 100%; border-radius: 6px;
+      display: block; border: 1px solid var(--border);
+    }
+    /* Two-up spotlight layout */
+    .cs-spotlight-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      align-items: start;
+    }
+    .cs-spotlight-label {
+      font-size: 0.775rem; color: var(--muted);
+      font-weight: 500; letter-spacing: 0.02em;
+      margin-top: 0.5rem; display: block;
+    }
+
+    /* LinkedIn post card */
+    .li-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .li-card-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.875rem 1rem 0.5rem;
+    }
+    .li-logo {
+      width: 36px; height: 36px; border-radius: 4px;
+      background: #0A0A0A;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .li-logo span {
+      color: white; font-size: 0.65rem; font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .li-card-meta {}
+    .li-card-name {
+      font-size: 0.825rem; font-weight: 700;
+      color: var(--charcoal); line-height: 1.2;
+    }
+    .li-card-time {
+      font-size: 0.725rem; color: var(--muted);
+    }
+    .li-card-body {
+      padding: 0 1rem 0.75rem;
+      font-size: 0.8rem; color: #333;
+      line-height: 1.55;
+    }
+    .li-card-body p { margin-bottom: 0.4rem; }
+    .li-card-body p:last-child { margin-bottom: 0; }
+    .li-card-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+    .li-card-stats {
+      padding: 0.6rem 1rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .li-card-reactions {
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .li-card-link {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--sage); text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .li-card-link:hover { color: #4a6b4e; }
+    /* YouTube embed */
+    .cs-video-embed {
+      margin-top: 1.5rem;
+      border-radius: 8px; overflow: hidden;
+      aspect-ratio: 16/9; background: #111;
+    }
+    .cs-video-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+    .newsletter-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .nl-stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 1.25rem 1.5rem;
+    }
+    .nl-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 700;
+      color: #E8B400; display: block; line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .nl-stat-label {
+      font-size: 0.75rem; color: #9A8AAA;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    /* First 10 Hires case study accent */
+    .cs-brand-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #160019; border-radius: 4px;
+      padding: 0.35rem 0.75rem; margin-bottom: 0.875rem;
+    }
+    .cs-brand-badge span {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.15rem 0.5rem;
+    }
+    .cs-brand-badge .rr {
+      font-size: 0.65rem; font-weight: 700;
+      color: #E8B400; letter-spacing: 0.06em;
+    }
+
+    /* WORK */
+    .case-study {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 3.5rem; padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-study:last-child { border-bottom: none; }
+    .cs-meta { padding-top: 0.2rem; }
+    .cs-tag {
+      display: inline-block; background: var(--sage-light);
+      color: var(--sage); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.275rem 0.625rem; border-radius: 3px; margin-bottom: 0.875rem;
+    }
+    .cs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--charcoal); line-height: 1.3; margin-bottom: 0.6rem;
+    }
+    .cs-headline { font-size: 0.85rem; color: var(--muted); line-height: 1.55; font-style: italic; }
+    .cs-body > p {
+      font-size: 0.975rem; color: var(--text-body);
+      line-height: 1.8; margin-bottom: 1.25rem;
+    }
+    .cs-bullets { list-style: none; margin: 0.5rem 0 1.5rem; }
+    .cs-bullets li {
+      font-size: 0.9rem; color: var(--text-body);
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      position: relative; line-height: 1.65;
+    }
+    .cs-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--sage); font-size: 0.775rem; top: 0.4rem;
+    }
+    .cs-metrics { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1.25rem; }
+    .metric {
+      background: var(--charcoal); color: white;
+      padding: 0.45rem 0.875rem; border-radius: 4px;
+      font-size: 0.775rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .metric.highlight { background: var(--sage); }
+
+    /* VIDEO / MEDIA EMBED */
+    .cs-media { margin-top: 1.5rem; }
+    .cs-media-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .cs-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1rem; border-radius: 5px;
+      font-size: 0.825rem; font-weight: 500;
+      text-decoration: none; transition: all 0.2s;
+      border: 1.5px solid var(--border); color: var(--charcoal);
+    }
+    .cs-link:hover { border-color: var(--sage); color: var(--sage); }
+    .cs-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .cs-video-embed {
+      margin-top: 1.25rem;
+      border-radius: 8px; overflow: hidden;
+      background: var(--charcoal);
+      aspect-ratio: 16/9;
+      position: relative;
+    }
+    .cs-video-embed iframe {
+      width: 100%; height: 100%;
+      border: none; display: block;
+    }
+
+    /* XFN */
+    .xfn-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .xfn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; }
+    .xfn-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2rem;
+    }
+    .xfn-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--charcoal); margin-bottom: 1.25rem;
+    }
+    .xfn-card ul { list-style: none; }
+    .xfn-card ul li {
+      font-size: 0.9rem; color: var(--text-body);
+      padding: 0.5rem 0 0.5rem 1.25rem;
+      position: relative; line-height: 1.65;
+      border-bottom: 1px solid var(--border);
+    }
+    .xfn-card ul li:last-child { border-bottom: none; padding-bottom: 0; }
+    .xfn-card ul li::before {
+      content: '·'; position: absolute; left: 0.3rem;
+      color: var(--sage); font-size: 1.4rem; line-height: 1.2;
+    }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 4rem 2.5rem; text-align: center; }
+    .footer-inner { max-width: 1120px; margin: 0 auto; }
+    footer h2 { margin-bottom: 0.625rem; }
+    .footer-sub { color: var(--muted); margin-bottom: 1.75rem; font-size: 1rem; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s; letter-spacing: 0.01em;
+    }
+    .footer-links a:hover { color: var(--sage); }
+    .footer-copy { margin-top: 3rem; font-size: 0.75rem; color: var(--border); }
+
+    /* FADE IN */
+    .fade-in {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+
+    /* Process section */
+    .process-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 3rem;
+    }
+    .process-step {
+      padding: 1.75rem; background: white;
+      border: 1px solid var(--border); border-radius: 10px;
+    }
+    .process-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--sage-mid); line-height: 1; margin-bottom: 0.875rem;
+    }
+    .process-step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--charcoal); margin-bottom: 0.625rem;
+    }
+    .process-step p { font-size: 0.9rem; color: var(--text-body); line-height: 1.75; }
+    .process-callout {
+      margin-top: 3rem; padding: 2.25rem 2.5rem;
+      background: var(--sage-light); border: 1px solid var(--sage-mid); border-radius: 10px;
+    }
+    .process-callout-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1.75rem; display: block;
+    }
+    .process-layers {
+      display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr;
+      gap: 0.75rem; align-items: start;
+    }
+    .process-layer {
+      background: white; border: 1px solid var(--sage-mid);
+      border-radius: 8px; padding: 1.25rem 1.375rem;
+    }
+    .layer-label {
+      font-size: 0.72rem; font-weight: 700; color: var(--sage);
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.5rem;
+    }
+    .process-layer p { font-size: 0.845rem; color: var(--text-body); line-height: 1.65; }
+    .process-layer-arrow {
+      font-size: 1.1rem; color: var(--sage-mid); padding-top: 2.25rem; text-align: center;
+    }
+
+    /* FITAE hub link */
+    .fitae-hub-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.5rem; padding: 0.8rem 1.375rem;
+      border: 1.5px solid var(--sage); border-radius: 6px;
+      text-decoration: none; color: var(--sage);
+      font-size: 0.875rem; font-weight: 600; transition: all 0.2s;
+    }
+    .fitae-hub-link:hover { background: var(--sage); color: white; }
+
+    /* MORE WORK */
+    .more-work-section {
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+    .more-work-item { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    .more-work-item:last-child { border-bottom: none; }
+    .more-work-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--charcoal); margin: 0.5rem 0 0.35rem;
+    }
+    .more-work-sub { font-size: 0.875rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+    .more-work-video-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; margin-top: 1.5rem;
+    }
+    .more-work-video-label { font-size: 0.775rem; color: var(--muted); margin-top: 0.5rem; display: block; }
+
+    /* SCROLL SNAP */
+    html {
+      scroll-snap-type: y proximity;
+      scroll-padding-top: 57px;
+    }
+    .hero {
+      min-height: calc(100svh - 57px);
+      scroll-snap-align: start;
+    }
+    #about, #newsletter, #work, #process, .more-work-section, #contact {
+      scroll-snap-align: start;
+    }
+
+    /* SIDE DOT NAV */
+    .scroll-nav {
+      position: fixed; right: 1.625rem; top: 50%;
+      transform: translateY(-50%); z-index: 200;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      align-items: center;
+    }
+    .scroll-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--border); border: none; padding: 0;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+    .scroll-dot::after {
+      content: attr(data-label);
+      position: absolute; right: 1.25rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.68rem; white-space: nowrap;
+      color: var(--muted); opacity: 0;
+      transition: opacity 0.15s; pointer-events: none;
+      font-family: 'Inter', sans-serif; letter-spacing: 0.03em;
+    }
+    .scroll-dot:hover::after { opacity: 1; }
+    .scroll-dot.active {
+      background: var(--sage);
+      transform: scale(1.5);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem 3rem; }
+      .hero-photo { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .newsletter-stats { grid-template-columns: repeat(2, 1fr); }
+      .case-study { grid-template-columns: 1fr; gap: 1.25rem; }
+      .xfn-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); row-gap: 1.75rem; }
+      nav { padding: 0.875rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .section-wrap { padding: 3.5rem 1.5rem; }
+      .newsletter-spotlight { padding: 3.5rem 1.5rem; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-layers { grid-template-columns: 1fr; }
+      .process-layer-arrow { padding-top: 0; transform: rotate(90deg); }
+      .more-work-video-grid { grid-template-columns: 1fr; }
+      .scroll-nav { display: none; }
+      .hero { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Sarah Hallam</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- SCROLL DOT NAV -->
+<div class="scroll-nav" role="navigation" aria-label="Page sections">
+  <button class="scroll-dot active" data-label="Top" data-target="hero"></button>
+  <button class="scroll-dot" data-label="About" data-target="about"></button>
+  <button class="scroll-dot" data-label="Newsletter" data-target="newsletter"></button>
+  <button class="scroll-dot" data-label="Work" data-target="work"></button>
+  <button class="scroll-dot" data-label="Process" data-target="process"></button>
+  <button class="scroll-dot" data-label="More Work" data-target="more-work"></button>
+  <button class="scroll-dot" data-label="Contact" data-target="contact"></button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="fade-in">
+    <p class="hero-eyebrow">Content Marketer. Campaign Strategist. Curious Human.</p>
+    <h1>Hello! I'm Sarah.</h1>
+    <p class="hero-bio">
+      👋 I'm a writer, editor and marketer that has spent over five years creating content inside
+      early and growth-stage B2B startups. This is my attempt to create an archive of everything
+      I've worked on professionally. Thanks for stopping by.
+    </p>
+    <div class="hero-links">
+      <a href="#work" class="btn btn-primary">See my work</a>
+      <a href="mailto:sarahhallam17@gmail.com" class="btn btn-outline">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-photo fade-in delay-1">
+    <img src="headshot.jpg" alt="Sarah Hallam" />
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <p style="max-width:1120px; margin: 0 auto 1.25rem; padding: 0 2.5rem; font-size:0.8rem; color:var(--muted); letter-spacing:0.03em;">
+    Currently: Sr. Content Marketing Manager at Rippling · Some numbers at a glance
+  </p>
+  <div class="stats-inner fade-in">
+    <div>
+      <span class="stat-number">31</span>
+      <span class="stat-label">Content assets in 12 months</span>
+    </div>
+    <div>
+      <span class="stat-number">2,301</span>
+      <span class="stat-label">Leads generated</span>
+    </div>
+    <div>
+      <span class="stat-number">$2M+</span>
+      <span class="stat-label">Pipeline influenced</span>
+    </div>
+    <div>
+      <span class="stat-number">18,800</span>
+      <span class="stat-label">Newsletter subscribers built from zero</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section-wrap" id="about">
+  <div class="about-grid">
+    <div class="fade-in">
+      <p class="section-label">About me</p>
+      <h2>Storyteller. Strategist.<br>Startup obsessive.</h2>
+      <div class="about-text">
+        <p>
+          <strong>Product marketing interests me because it feels like an extension of the
+          work I've always done:</strong> start with a real customer insight, build a narrative
+          around it, and own the distribution across channels. Every project in this
+          portfolio started with a conversation — not a brief.
+        </p>
+        <p>
+          I think in full-funnel terms and I can't turn it off. "First 10 Hires" started
+          because I built a spreadsheet auditing conversion rates across programs that
+          weren't mine. I want to be in a role where that instinct —
+          <strong>auditing the data, finding the gap, building the strategy, and owning the
+          execution</strong> — is part of the job description.
+        </p>
+        <p>
+          I love startups because the work is directly felt. I'm from D.C., have been
+          in NYC for five years, and I hold a dual degree in Journalism and Political
+          Science from Mizzou. That's not an accident — I'm a reporter at heart.
+        </p>
+      </div>
+    </div>
+    <div class="fade-in delay-1">
+      <div class="sidebar-card">
+        <h3>Career path</h3>
+        <div class="career-item">
+          <div class="career-co">Rippling</div>
+          <div class="career-role">Sr. Content Marketing Manager, Startups</div>
+        </div>
+        <div class="career-item">
+          <div class="career-co">First Round Capital</div>
+          <div class="career-role">Writer and Podcast Producer — First Round Review</div>
+        </div>
+        <div class="career-item">
+          <div class="career-co">The Org</div>
+          <div class="career-role">Content Manager — launched Iterate newsletter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER SPOTLIGHT — First Principles branded -->
+<div class="newsletter-spotlight" id="newsletter">
+  <div class="newsletter-inner">
+    <div class="fade-in">
+      <div class="fp-wordmark"><img src="fp-wordmark.png" alt="First Principles" /></div>
+      <p class="section-label">Owned audience</p>
+      <h2 style="color: white;">I know how to build an audience from nothing.</h2>
+      <p>
+        At Rippling, I launched <a href="https://www.rippling.com/first-principles" target="_blank" style="color:white; font-weight:700; text-decoration:none; border-bottom: 1px solid rgba(255,255,255,0.4);">First Principles</a> —
+        a newsletter for startup founders — and grew it from zero to 18,800 subscribers
+        with a 44% open rate. The SaaS industry average is 21%.
+        I also built an organic LinkedIn presence to 70K+ weekly subscribers.
+      </p>
+      <p>
+        Before that, I grew The Org's newsletter <em>Iterate</em> from 15% to 45% open
+        rate in six months — turning it into the company's number one organic
+        lead-generating source. 75K subscribers. 200 converted leads a month.
+      </p>
+    </div>
+    <div class="newsletter-stats fade-in delay-1">
+      <div class="nl-stat">
+        <span class="nl-stat-number">18,800</span>
+        <span class="nl-stat-label">First Principles subscribers</span>
+      </div>
+      <div class="nl-stat">
+        <span class="nl-stat-number">44%</span>
+        <span class="nl-stat-label">Open rate (2× industry avg)</span>
+      </div>
+      <div class="nl-stat">
+        <span class="nl-stat-number">70K+</span>
+        <span class="nl-stat-label">Weekly LinkedIn subscribers</span>
+      </div>
+      <div class="nl-stat">
+        <span class="nl-stat-number">45%</span>
+        <span class="nl-stat-label">Open rate at The Org (up from 15%)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div class="section-wrap" id="work" style="padding-top: 5rem;">
+  <div class="fade-in">
+    <p class="section-label">Selected work</p>
+    <h2>The highlight reel.</h2>
+    <p class="section-intro">
+      Four projects that get to the heart of how I work.<br>
+      Digging up key insights → Building the narrative → Capturing the content → Owning the distribution
+    </p>
+  </div>
+
+  <!-- 1. First 10 Hires -->
+  <div class="case-study fade-in">
+    <div class="cs-meta">
+      <div class="cs-brand-badge">
+        <span>First Principles</span>
+        <span class="rr">✦ Rippling</span>
+      </div>
+      <span class="cs-tag">Program</span>
+      <div class="cs-title">"First 10 Hires" Masterclass</div>
+      <div class="cs-headline">What journalism school taught me about finding the story inside a broken conversion metric.</div>
+    </div>
+    <div class="cs-body">
+      <p>
+        At Rippling, Core HR MQL-to-S1 conversion was sitting at 2.63% — well under the 33% benchmark — and nobody on the team was talking about it. I built a spreadsheet, quantified the gap, and brought it to my team unprompted. Then I made a bet: <em>if a startup is hiring their first 10 employees, they're also ready for payroll, benefits, and a proper HRIS.</em> Content could fix this if we met founders exactly where they were in the buying process.
+      </p>
+      <ul class="cs-bullets">
+        <li>Recruited 5 speakers, ran 3 interviews, edited 3 videos end-to-end</li>
+        <li>Co-designed landing pages with demand gen; wrote paid ad copy for Meta + LinkedIn</li>
+        <li>Built 2 product decks with tailored talk tracks for post-webinar sales handoff</li>
+        <li>Program brief shared org-wide by senior leadership</li>
+      </ul>
+      <div class="cs-metrics">
+        <span class="metric highlight">250% of S1 goal</span>
+        <span class="metric">688 registrants</span>
+        <span class="metric">280+ MQLs</span>
+        <span class="metric">$22K pipeline</span>
+      </div>
+      <div class="cs-media">
+        <div class="cs-image-grid">
+          <img src="f10-hero.png" alt="First 10 Hires Masterclass brand" />
+          <img src="f10-speakers.png" alt="All 5 speakers — First 10 Hires" />
+          <img src="f10-curriculum.png" alt="Series curriculum overview" class="span-full" />
+          <img src="f10-barrels.png" alt="Barrels and Ammo gated asset — Rippling x Clarify" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Linear Nimble Scale Playbook -->
+  <div class="case-study fade-in">
+    <div class="cs-meta">
+      <span class="cs-tag">Campaign</span>
+      <div class="cs-title">Linear's Nimble Scale Playbook</div>
+      <div class="cs-headline">The importance of content-market fit.</div>
+    </div>
+    <div class="cs-body">
+      <p>
+        I pitched and led an interview with Cristina Cordova, COO at Linear. Halfway through, she described how Linear runs on "collapsible orgs" — fluid teams that assemble for a priority, ship, then disband. Nobody had written about this. I identified it as the narrative spine for an entire campaign. When the videos weren't landing on LinkedIn, I didn't push harder on paid. I wrote a ghost post for Cristina that delivered the insight in a format native to the platform — and it became the best-performing organic thought leader post in Rippling history.
+      </p>
+      <ul class="cs-bullets">
+        <li>Ran the full PMM loop: subject research → insight extraction → content execution → distribution</li>
+        <li>Full interview on YouTube; social cutdowns; gated downloadable asset (top organic VCB asset)</li>
+        <li>When videos weren't converting on LinkedIn, drafted a ghost post for Cristina that bridged Rippling's HRIS value prop with her operating philosophy — instead of pushing harder on paid</li>
+        <li>Best-performing organic thought leader post in Rippling history</li>
+      </ul>
+      <div class="cs-metrics">
+        <span class="metric highlight">$19.7K attributed revenue</span>
+        <span class="metric">1,100+ reactions</span>
+        <span class="metric">800+ downloads</span>
+        <span class="metric">Zero paid spend</span>
+      </div>
+      <div class="cs-media">
+
+        <!-- Interview video -->
+        <div class="cs-video-embed">
+          <iframe src="https://www.youtube.com/embed/Y24NFbRYJyA" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <!-- Playbook assets: cover + Mermaid chart -->
+        <div class="cs-image-grid" style="margin-top: 1rem;">
+          <div>
+            <img src="linear-cover.png" alt="Linear's Nimble Scale Playbook — cover" />
+            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+              <a href="https://www.rippling.com/resources/startups-linear-nimble-scale-playbook" target="_blank" style="color:var(--sage); font-weight:600; text-decoration:none;">Download the playbook →</a>
+              &nbsp;· 800+ downloads, top organic VCB asset
+            </p>
+          </div>
+          <div class="mermaid-callout">
+            <img src="linear-mermaid.png" alt="Linear's collapsible org model — built with Mermaid" />
+            <p class="mermaid-note">
+              <strong>Built with Mermaid</strong> — a free, open-source diagramming tool.
+              This chart became the visual centerpiece of Cristina's LinkedIn post.
+              No designer needed.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cristina Cordova LinkedIn post card -->
+        <div class="li-card" style="margin-top: 1rem;">
+          <div class="li-card-header">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--sage-light);border:1px solid var(--sage-mid);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--sage);flex-shrink:0;">CC</div>
+            <div class="li-card-meta">
+              <div class="li-card-name">Cristina Cordova</div>
+              <div class="li-card-time">COO at Linear · 8mo ago</div>
+            </div>
+          </div>
+          <div class="li-card-body">
+            <p><strong>Most early stage companies don't actually know how organizational structures should work.</strong> So they end up hiring wrong. I've been through so many reorgs — there's always a lot of dramatic, painful, slow work you shouldn't have to do.</p>
+            <p>At Linear, we call it a matter of running on a <strong>collapsible org</strong>. Every time we start a new priority, we assemble a small, focused team. When they ship, the team disbands and people reassemble for the next thing. No permanent silos. No territory battles.</p>
+            <p>I put together a complete guide on collapsible teams for Rippling's First Principles. Grab your copy here ↓</p>
+          </div>
+          <img src="linear-mermaid.png" alt="Linear's collapsible org model" class="li-card-thumb" style="object-fit: contain; background: #fafafa; padding: 0.5rem;" />
+          <div class="li-card-stats">
+            <span class="li-card-reactions">1,209 reactions · 138 comments · 25 reposts</span>
+            <a href="https://www.linkedin.com/in/cristinacordova/" target="_blank" class="li-card-link">View on LinkedIn →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AI Runs on Rippling -->
+  <div class="case-study fade-in">
+    <div class="cs-meta">
+      <div class="cs-brand-badge">
+        <span>First Principles</span>
+        <span class="rr">✦ Rippling</span>
+      </div>
+      <span class="cs-tag">Campaign</span>
+      <div class="cs-title">AI Runs on Rippling</div>
+      <div class="cs-headline">Why I stopped producing customer stories and started designing customer campaigns.</div>
+    </div>
+    <div class="cs-body">
+      <p>
+        The insight: 50% of the top AI companies run on Rippling — but we'd never said it out loud. I designed a format that would let us say it credibly: a dual case study and thought leadership interview with Parker Conrad and the CEO of Cursor, built from the ground up for full-funnel reuse. One shoot became a blog post, a webinar, social cutdowns, paid ads, and sales collateral.
+      </p>
+      <ul class="cs-bullets">
+        <li>Designed the interview format; drafted questions for Parker Conrad (CEO, Rippling)</li>
+        <li>Owned post-production: editor briefs, full video edit, cutdowns, First Principles branding</li>
+        <li>Wrote the "AI Runs on Rippling" blog post defining campaign positioning — 50% of top AI companies use Rippling — working directly with executive stakeholders</li>
+        <li>Managed all webinar promotion including paid ads; 115% of stretch registration goal</li>
+      </ul>
+      <div class="cs-metrics">
+        <span class="metric highlight">$2M pipeline influenced</span>
+        <span class="metric">150K impressions in &lt;24h</span>
+        <span class="metric">861 registrants (115% of goal)</span>
+        <span class="metric">341 leads</span>
+      </div>
+      <div class="cs-media">
+        <div class="cs-video-embed">
+          <iframe src="https://www.youtube.com/embed/QM_I3cTi3og" allowfullscreen loading="lazy"></iframe>
+        </div>
+
+        <!-- Rippling LinkedIn post card -->
+        <div class="li-card" style="margin-top: 1rem;">
+          <div class="li-card-header">
+            <div class="li-logo"><span>rrr</span></div>
+            <div class="li-card-meta">
+              <div class="li-card-name">Rippling <span style="font-weight:400;">✓</span></div>
+              <div class="li-card-time">9mo ago · Edited · 🌐</div>
+            </div>
+          </div>
+          <div class="li-card-body">
+            <p><strong>What do Cursor, Clay, Runway, Decagon and most of the Forbes AI Top 50 have in common?</strong></p>
+            <p>They run on Rippling.</p>
+            <p>AI founders don't have time for ops debt. They're shipping. Raising. Hiring. Staying lean.</p>
+            <p>🟠 Cursor hit $500M+ ARR with no dedicated HR team. The first piece of software Cursor CEO Michael T. bought? Rippling. For a long time, he even ran payroll himself.</p>
+            <p>The next breakout AI company is already scaling on Rippling. Why not yours?</p>
+          </div>
+          <img src="cursor-li-screenshot.png" alt="Michael Truell, CEO of Cursor — And we are massive fans of Rippling" class="li-card-thumb" style="object-fit:cover;" />
+          <div class="li-card-stats">
+            <span class="li-card-reactions">1,227 reactions · 22 comments · 278 reposts</span>
+            <a href="https://www.linkedin.com/posts/what-do-cursor-clay-runway-decagon-and-ugcPost-7361792876822896641-dUcu/" target="_blank" class="li-card-link">View on LinkedIn →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Founding in the AI Era -->
+  <div class="case-study fade-in">
+    <div class="cs-meta">
+      <div class="cs-brand-badge">
+        <span>First Principles</span>
+        <span class="rr">✦ Rippling</span>
+      </div>
+      <span class="cs-tag">Campaign</span>
+      <div class="cs-title">Founding in the AI Era</div>
+      <div class="cs-headline">I built the distribution architecture before the first asset went live.</div>
+    </div>
+    <div class="cs-body">
+      <p>
+        The largest campaign I've ever run — and the most strategically designed. Before I wrote a single brief, I mapped how the campaign would move through the market: which investors would seed it, which founder communities would amplify it, which executives needed custom angles to make the content platform-native. The distribution plan came first. The content followed.
+      </p>
+      <ul class="cs-bullets">
+        <li>Designed a 3-layer distribution system: VC seeding → founder communities → exec thought leadership</li>
+        <li>Produced the full suite of interviews, reports, and video cutdowns housed at the campaign hub</li>
+        <li>Ghostwrote LinkedIn content for Rippling executives and featured founders — same research, platform-native format</li>
+        <li>Built and enforced copy governance across all assets so every touchpoint stayed message-consistent</li>
+      </ul>
+      <div class="cs-metrics">
+        <span class="metric highlight">$1.47M SQO pipeline</span>
+        <span class="metric">$623K S4 pipeline</span>
+        <span class="metric">$120K closed won</span>
+        <span class="metric">Largest campaign of 2026</span>
+      </div>
+      <div class="cs-media">
+
+        <!-- Campaign hub hero -->
+        <div class="cs-image-single">
+          <a href="https://reports.rippling.com/founder-ai-era/" target="_blank">
+            <img src="fitae-hub.png" alt="Founding in the AI Era — campaign hub" style="border-radius:8px; border:1px solid var(--border); display:block; width:100%;" />
+          </a>
+          <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+            <a href="https://reports.rippling.com/founder-ai-era/" target="_blank" style="color:var(--sage); font-weight:600; text-decoration:none;">Explore the full campaign hub →</a>
+          </p>
+        </div>
+
+        <!-- Report cover grid -->
+        <div class="cs-image-grid" style="margin-top:1rem; grid-template-columns: repeat(4, 1fr);">
+          <img src="fitae-fundraising.png" alt="Fundraising guide" style="border-radius:6px;" />
+          <img src="fitae-hiring.png" alt="Startup founder hiring guide" style="border-radius:6px;" />
+          <img src="fitae-talent.png" alt="The price of talent in the AI era" style="border-radius:6px;" />
+          <img src="fitae-scalability.png" alt="Playbook for sustainable growth" style="border-radius:6px;" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section-wrap" id="process">
+  <div class="fade-in">
+    <p class="section-label">How I think</p>
+    <h2>Distribution is strategy, not an afterthought.</h2>
+    <p class="section-intro">
+      Most content plans end with "promote on social." Mine start with a map of who shares what, and why, at every stage of the funnel.
+    </p>
+  </div>
+
+  <div class="process-grid fade-in">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <h3>Find the real insight</h3>
+      <p>Every campaign starts with a customer conversation or a data anomaly. I rely on my background as a journalist here — asking pointed questions in prep calls, mining transcripts to find the best quotes, and observing what gets an audience riled up in the comments.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <h3>When life gives you content, repurpose it five different ways.</h3>
+      <p>Before I record any interview, I craft questions that will yield exceptional answers for at least three different channels. What works in an infographic won't always translate to a viral YouTube short. This requires practice.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <h3>Map the network first</h3>
+      <p>Before launch, I map the amplifiers: which investors are adjacent to the topic, which founder communities will forward it, which executives can ghost-post the insight natively. Distribution is engineered, not hoped for.</p>
+    </div>
+  </div>
+
+  <div class="process-callout fade-in">
+    <span class="process-callout-label">In practice — "Founding in the AI Era" distribution architecture</span>
+    <div class="process-layers">
+      <div class="process-layer">
+        <div class="layer-label">Layer 1 — VC Seeding</div>
+        <p>Seeded with partner-level investors in the Rippling network before any public launch — building credibility with the people who influence what founders read and trust.</p>
+      </div>
+      <div class="process-layer-arrow">→</div>
+      <div class="process-layer">
+        <div class="layer-label">Layer 2 — Founder Communities</div>
+        <p>Distributed through the Slack groups, forums, and newsletters where early-stage founders spend time — placing content where the conversation already lives.</p>
+      </div>
+      <div class="process-layer-arrow">→</div>
+      <div class="process-layer">
+        <div class="layer-label">Layer 3 — Exec Thought Leadership</div>
+        <p>Ghostwritten for Rippling execs and featured founders — same research, but repackaged as platform-native LinkedIn posts with copy governance across the full campaign.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MORE WORK -->
+<div class="more-work-section" id="more-work">
+  <div class="section-wrap">
+    <div class="fade-in">
+      <p class="section-label">More work</p>
+      <h2>Also worth seeing.</h2>
+      <p class="section-intro">A few more projects — series work, event coverage, and the founder interview series that fed directly into bigger campaigns.</p>
+    </div>
+
+    <!-- Founder Spotlights -->
+    <div class="more-work-item fade-in">
+      <span class="cs-tag">Series</span>
+      <div class="more-work-title">Founder Spotlights</div>
+      <div class="more-work-sub">What founders told me quietly became our campaign strategy publicly.</div>
+      <div class="cs-spotlight-pair" style="margin-top:1.25rem;">
+
+        <div>
+          <div class="li-card">
+            <div class="li-card-header">
+              <div class="li-logo"><span>rrr</span></div>
+              <div class="li-card-meta">
+                <div class="li-card-name">Rippling <span style="font-weight:400;">✓</span></div>
+                <div class="li-card-time">8mo ago · 🌐</div>
+              </div>
+            </div>
+            <div class="li-card-body">
+              <p><strong>$1M ARR in 8 months. No sales team. No marketer.</strong> Just one founder posting three times a week.</p>
+              <p>Sammy Greenwall started Henry AI (YC S24) to help commercial real estate brokers generate pitch decks with AI. Today, Henry is a Rippling customer doing $1M+ ARR across 62 brokerages — and they've never hired a full-time sales or marketing person.</p>
+              <p>AI founders don't need a demand gen team. They need time back — and a repeatable way to build credibility before the product is finished.</p>
+            </div>
+            <img src="founder-sammy.jpg" alt="Sammy Greenwall, Henry AI" class="li-card-thumb" />
+            <div class="li-card-stats">
+              <span class="li-card-reactions">244 reactions · 16 comments · 12 reposts</span>
+              <a href="https://www.linkedin.com/posts/1m-arr-in-8-months-no-sales-team-no-marketer-ugcPost-7364346780316016640-7UJG" target="_blank" class="li-card-link">View on LinkedIn →</a>
+            </div>
+          </div>
+          <span class="cs-spotlight-label">Sammy Greenwall, Henry AI</span>
+        </div>
+
+        <div>
+          <div class="cs-video-embed" style="margin-top:0;">
+            <iframe src="https://www.youtube.com/embed/HpFqBK4Sz8Q" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <span class="cs-spotlight-label">Penny Chen &amp; Chris Le, Pax</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Events + more videos -->
+    <div class="more-work-item fade-in">
+      <span class="cs-tag">Video</span>
+      <div class="more-work-title">More from the archive</div>
+      <div class="more-work-sub">Event coverage, panel discussions, and a co-founder quiz that went further than expected.</div>
+      <div class="more-work-video-grid" style="margin-top:1.25rem;">
+        <div>
+          <div class="cs-video-embed" style="margin-top:0;">
+            <iframe src="https://www.youtube.com/embed/hboP07u90vc" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <span class="more-work-video-label">Rippling on the Road — Chicago</span>
+        </div>
+        <div>
+          <div class="cs-video-embed" style="margin-top:0;">
+            <iframe src="https://www.youtube.com/embed/TPULYGvUHb0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <span class="more-work-video-label">CFO &amp; the AI bubble — panel discussion</span>
+        </div>
+        <div>
+          <div class="cs-video-embed" style="margin-top:0;">
+            <iframe src="https://www.youtube.com/embed/dYdgplghUyM" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <span class="more-work-video-label">The co-founder quiz</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner fade-in">
+    <p class="section-label">Contact</p>
+    <p class="footer-sub">Let me know if you have questions about my work or think we could collab on a piece of content together.</p>
+    <div class="footer-links">
+      <a href="mailto:sarahhallam17@gmail.com">sarahhallam17@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sarah-hallam17/" target="_blank">LinkedIn →</a>
+    </div>
+    <p class="footer-copy">Sarah Hallam · 2025</p>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+  // Dot navigation
+  const dots = document.querySelectorAll('.scroll-dot');
+  const snapTargets = [
+    document.querySelector('.hero'),
+    document.getElementById('about'),
+    document.getElementById('newsletter'),
+    document.getElementById('work'),
+    document.getElementById('process'),
+    document.getElementById('more-work'),
+    document.getElementById('contact'),
+  ];
+
+  // Click dot → scroll to section
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      snapTargets[i]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Highlight active dot based on scroll position
+  const dotObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const idx = snapTargets.indexOf(entry.target);
+          if (idx !== -1) {
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+          }
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  snapTargets.forEach((el) => el && dotObserver.observe(el));
+</script>
+</body>
+</html>
